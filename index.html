@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swapnil — Student Developer</title>
+  <meta name="description"
+    content="Portfolio of Swapnil — student developer building academic, personal, and learning projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="logo" href="#home">S<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Let’s talk</a>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <p class="eyebrow">Student · Developer · Builder</p>
+      <h1>
+        Hi, I’m <em>Swapnil</em>.
+        <span>I turn coursework, curiosity, and late-night ideas into working software.</span>
+      </h1>
+      <p class="lede">
+        A student developer focused on clean interfaces, solid fundamentals, and
+        projects that actually ship — from academic assignments to personal experiments.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="SWAPNIL_SINGH_RESUME_updated_08July2026.pdf" target="_blank"
+          rel="noopener noreferrer">Resume</a>
+      </div>
+      <ul class="hero-meta">
+        <li><strong>Open to</strong> internships &amp; collabs</li>
+        <li><strong>Currently</strong> learning full-stack</li>
+        <li><strong>Based</strong> India</li>
+      </ul>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head">
+        <p class="eyebrow">About</p>
+        <h2>Curious by default, practical by design.</h2>
+      </div>
+      <div class="about-grid">
+        <p>
+          I’m a student who likes taking a problem apart, then putting it back
+          together as something people can actually use. Whether it’s a course
+          project or a weekend prototype, I care about structure, readability,
+          and a good user experience.
+        </p>
+        <p>
+          Outside class, I explore web development, data structures, and
+          product thinking. This site is a snapshot of that mix — academic
+          work, personal builds, and the projects I used to learn in public.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Projects</p>
+        <h2>Start with a field.</h2>
+        <p class="section-copy">
+          First pick SE, ML, Excel, or Web. That opens a window of projects
+          with details and links.
+        </p>
+      </div>
+      <div class="category-grid" id="category-grid"></div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Skills</p>
+        <h2>Tools I reach for most.</h2>
+      </div>
+      <div class="skill-groups">
+        <article class="skill-card">
+          <h3>Languages</h3>
+          <ul>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>HTML &amp; CSS</li>
+            <li>Java</li>
+            <li>SQL</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <h3>Web</h3>
+          <ul>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>REST APIs</li>
+            <li>Responsive UI</li>
+            <li>Git &amp; GitHub</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <h3>Foundations</h3>
+          <ul>
+            <li>Data structures</li>
+            <li>OOP</li>
+            <li>Databases</li>
+            <li>Problem solving</li>
+            <li>UI/UX basics</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s build something useful.</h2>
+      </div>
+      <p class="section-copy">
+        Open to internships, student collaborations, and interesting side
+        projects. Drop a message — I’ll get back as soon as I can.
+      </p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:swapnil@example.com">Email me</a>
+        <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Swapnil. Built as a single-page portfolio.</p>
+  </footer>
+
+  <div class="modal" id="project-modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-bar">
+        <div class="modal-bar-left">
+          <div class="window-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <h2 id="modal-title"></h2>
+        <button class="icon-btn" type="button" data-close-modal aria-label="Close projects window">
+          ✕
+        </button>
+      </div>
+      <p class="modal-intro" id="modal-intro"></p>
+      <div class="project-grid" id="project-grid"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
