@@ -7,9 +7,38 @@
   --muted: #a79c8e;
   --copper: #e0a06a;
   --mint: #7ecfb8;
-  --ink: #0b0d10;
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
   --radius: 22px;
+  
+  --modal-bg: #161b22;
+  --modal-bar: rgba(16, 20, 26, 0.92);
+  --card-bg: #1d242e;
+  --backdrop: rgba(5, 6, 8, 0.82);
+  --tag-bg: rgba(224, 160, 106, 0.05);
+  --tag-border: rgba(224, 160, 106, 0.4);
+  --nav-bg: rgba(11, 13, 16, 0.72);
+  --btn-ink: #0b0d10;
+}
+
+body.light-theme {
+  --bg: #faf9f7;
+  --bg-2: #ffffff;
+  --panel: rgba(255, 255, 255, 0.85);
+  --line: rgba(0, 0, 0, 0.12);
+  --text: #2c2f33;
+  --muted: #6b7280;
+  --copper: #c26e29;
+  --mint: #2e8b71;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  
+  --modal-bg: #ffffff;
+  --modal-bar: rgba(245, 245, 245, 0.92);
+  --card-bg: #f3f4f6;
+  --backdrop: rgba(0, 0, 0, 0.4);
+  --tag-bg: rgba(194, 110, 41, 0.05);
+  --tag-border: rgba(194, 110, 41, 0.3);
+  --nav-bg: rgba(250, 249, 247, 0.85);
+  --btn-ink: #ffffff;
 }
 
 * {
@@ -88,7 +117,7 @@ main,
   position: sticky;
   top: 0;
   backdrop-filter: blur(16px);
-  background: rgba(11, 13, 16, 0.72);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--line);
   z-index: 5;
 }
@@ -164,7 +193,7 @@ h1 span {
   display: block;
   margin-top: 10px;
   font-size: 0.52em;
-  color: #d7cec1;
+  color: var(--muted);
   font-family: "Outfit", sans-serif;
   font-weight: 400;
   line-height: 1.3;
@@ -202,7 +231,7 @@ h1 span {
 
 .btn-primary {
   background: var(--copper);
-  color: var(--ink);
+  color: var(--btn-ink);
   border-color: transparent;
 }
 
@@ -245,12 +274,15 @@ h2 {
   margin-top: 12px;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
+.about-text {
+  max-width: 75ch;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.about-text p + p {
+  margin-top: 24px;
 }
 
 .skill-groups,
@@ -275,17 +307,32 @@ h2 {
 }
 
 .skill-card h3 {
-  margin-bottom: 14px;
-  font-size: 1.05rem;
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  color: var(--copper);
 }
 
 .skill-card ul {
   list-style: none;
-  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.skill-card li + li {
-  margin-top: 8px;
+.skill-card li {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  transition: border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.skill-card li:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+  transform: translateY(-2px);
 }
 
 .category-grid {
@@ -320,7 +367,7 @@ h2 {
   place-items: center;
   margin-bottom: 22px;
   font-size: 1.4rem;
-  background: rgba(224, 160, 106, 0.12);
+  background: var(--tag-bg);
 }
 
 .category-card[data-domain="ml"] .cat-icon,
@@ -378,7 +425,7 @@ h2 {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(5, 6, 8, 0.82);
+  background: var(--backdrop);
   backdrop-filter: blur(10px);
 }
 
@@ -387,7 +434,7 @@ h2 {
   width: min(1080px, calc(100% - 32px));
   max-height: min(86vh, 860px);
   margin: 7vh auto;
-  background: #161b22;
+  background: var(--modal-bg);
   border: 1px solid rgba(232, 224, 210, 0.18);
   border-radius: 24px;
   box-shadow: var(--shadow);
@@ -412,7 +459,7 @@ h2 {
   align-items: center;
   gap: 16px;
   padding: 16px 22px;
-  background: rgba(16, 20, 26, 0.92);
+  background: var(--modal-bar);
   border-bottom: 1px solid var(--line);
   z-index: 1;
 }
@@ -469,7 +516,7 @@ h2 {
 
 .modal-intro {
   padding: 18px 22px 0;
-  color: #cfc6b8;
+  color: var(--muted);
 }
 
 .project-grid {
@@ -483,7 +530,7 @@ h2 {
 
 .project-grid .category-card {
   min-height: 220px;
-  background: #1d242e;
+  background: var(--card-bg);
 }
 
 .empty-note {
@@ -492,8 +539,8 @@ h2 {
 }
 
 .project-card {
-  background: #1d242e;
-  border-color: rgba(232, 224, 210, 0.14);
+  background: var(--card-bg);
+  border-color: var(--line);
 }
 
 .project-card h3 {
@@ -503,7 +550,7 @@ h2 {
 }
 
 .project-card p {
-  color: #c8bfb1;
+  color: var(--muted);
   margin-bottom: 14px;
 }
 
@@ -519,13 +566,13 @@ h2 {
   padding: 5px 10px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  color: #d4cbbd;
+  color: var(--muted);
 }
 
 .tags span.tag-category {
   color: var(--copper);
-  border-color: rgba(224, 160, 106, 0.4);
-  background: rgba(224, 160, 106, 0.05);
+  border-color: var(--tag-border);
+  background: var(--tag-bg);
 }
 
 .card-links {
@@ -550,7 +597,6 @@ body.modal-open {
     display: none;
   }
 
-  .about-grid,
   .skill-groups,
   .category-grid,
   .project-grid,

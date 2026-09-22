@@ -28,10 +28,10 @@ const categoryMeta = {
 const domains = [
   {
     id: "se",
-    title: "SE Projects",
+    title: "Software Engineering",
     icon: "{}",
-    blurb: "Software engineering — apps, APIs, and systems with a clear structure.",
-    intro: "Pick a bucket to see the software projects in that category.",
+    blurb: "Scalable apps, APIs, and backend systems with a clear structure.",
+    intro: "Here are the software engineering projects in that category.",
     categories: {
       academic: [
         {
@@ -91,10 +91,10 @@ const domains = [
   },
   {
     id: "ml",
-    title: "ML Projects",
+    title: "Machine Learning",
     icon: "λ",
-    blurb: "Machine learning — datasets, models, and experiments you can actually run.",
-    intro: "Pick a bucket to see the machine learning projects in that category.",
+    blurb: "Model training, evaluation pipelines, and predictive algorithms.",
+    intro: "Here are the machine learning projects in that category.",
     categories: {
       academic: [
         {
@@ -129,85 +129,38 @@ const domains = [
     },
   },
   {
-    id: "excel",
-    title: "Excel Projects",
-    icon: "▦",
-    blurb: "Spreadsheets that behave like tools — dashboards, trackers, and clean models.",
-    intro: "Pick a bucket to see the Excel work in that category.",
+    id: "ds",
+    title: "Data Science",
+    icon: "▤",
+    blurb: "Data cleaning, exploratory analysis, and visualization dashboards.",
+    intro: "Here are the data science projects in that category.",
     categories: {
       academic: [
         {
-          title: "Marks Dashboard",
+          title: "Traffic Data Analysis",
           description:
-            "An exam-results workbook with lookup tables, conditional formatting, and a summary sheet for class averages and toppers.",
-          tags: ["Excel", "VLOOKUP", "Charts"],
+            "An exploratory data analysis (EDA) project on city traffic data to identify rush hour patterns and accident hotspots.",
+          tags: ["Python", "Pandas", "Matplotlib"],
           live: "https://github.com/",
           code: "https://github.com/",
         },
       ],
       personal: [
         {
-          title: "Monthly Budget Tracker",
+          title: "Real Estate Scraper & Dashboard",
           description:
-            "Income vs spend tracker with categories, leftover cash, and a one-page dashboard. Built so a month of expenses is readable at a glance.",
-          tags: ["Excel", "Pivot", "Dashboard"],
+            "A pipeline that scrapes local real estate listings daily and presents average price trends on an interactive Plotly dashboard.",
+          tags: ["Python", "BeautifulSoup", "Plotly"],
           live: "https://github.com/",
           code: "https://github.com/",
         },
       ],
       learning: [
         {
-          title: "Pivot & Chart Lab",
+          title: "A/B Testing Simulation",
           description:
-            "Practice workbook for slicers, pivot tables, and clean chart layouts — the spreadsheet habits I wanted to make automatic.",
-          tags: ["Excel", "Power Query", "Viz"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-      ],
-    },
-  },
-  {
-    id: "web",
-    title: "Web Projects",
-    icon: "◎",
-    blurb: "Front-end and UI work — layout, interaction, and interfaces that feel finished.",
-    intro: "Pick a bucket to see the web and UI projects in that category.",
-    categories: {
-      academic: [
-        {
-          title: "Department Mini-Site",
-          description:
-            "A multi-page department site with events, faculty cards, and a contact form. Practiced semantic HTML and a consistent layout system.",
-          tags: ["HTML", "CSS", "Accessibility"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-      ],
-      personal: [
-        {
-          title: "Expense Split",
-          description:
-            "A small app for splitting group expenses, settling balances, and exporting a summary. Built to be clearer than a spreadsheet.",
-          tags: ["JavaScript", "CSS", "UX"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-      ],
-      learning: [
-        {
-          title: "Weather Bench",
-          description:
-            "API-driven weather board with geolocation, hourly forecast, and error states. Practiced async data flow and empty/loading UI.",
-          tags: ["Fetch API", "CSS Grid", "UX"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-        {
-          title: "CSS Layout Lab",
-          description:
-            "A gallery of layout studies — magazine grid, dashboard shell, and mobile nav patterns — to practice spacing, type, and responsive rules.",
-          tags: ["CSS", "Responsive", "Design"],
+            "A simulated A/B test analysis using SciPy to determine statistical significance between two marketing landing pages.",
+          tags: ["Python", "SciPy", "StatsModels"],
           live: "https://github.com/",
           code: "https://github.com/",
         },
@@ -309,5 +262,24 @@ document.addEventListener("keydown", (event) => {
   if (modal.hidden) return;
   if (event.key === "Escape") {
     closeModal();
+  }
+});
+
+const themeToggle = document.getElementById("theme-toggle");
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "light") {
+  document.body.classList.add("light-theme");
+  themeToggle.textContent = "☾";
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+  if (document.body.classList.contains("light-theme")) {
+    localStorage.setItem("theme", "light");
+    themeToggle.textContent = "☾";
+  } else {
+    localStorage.setItem("theme", "dark");
+    themeToggle.textContent = "☀";
   }
 });
