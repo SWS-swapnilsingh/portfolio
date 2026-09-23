@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="custom-scroll">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,15 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <div class="noise" aria-hidden="true"></div>
-  <div class="orb orb-a" aria-hidden="true"></div>
-  <div class="orb orb-b" aria-hidden="true"></div>
 
   <header class="nav">
     <a class="logo" href="#home">S<span>.</span></a>
@@ -155,12 +153,9 @@
 
   <div class="modal" id="project-modal" hidden>
     <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-window custom-scroll" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-bar">
         <div class="modal-bar-left">
-          <div class="window-dots" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
         </div>
         <h2 id="modal-title"></h2>
         <button class="icon-btn" type="button" data-close-modal aria-label="Close projects window">

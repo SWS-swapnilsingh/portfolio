@@ -1,44 +1,52 @@
 :root {
-  --bg: #0b0d10;
-  --bg-2: #12161c;
-  --panel: rgba(20, 25, 32, 0.78);
-  --line: rgba(232, 224, 210, 0.12);
-  --text: #efe8dc;
-  --muted: #a79c8e;
-  --copper: #e0a06a;
-  --mint: #7ecfb8;
+  --bg: #151827;
+  --bg-2: #181B29;
+  --panel: rgba(24, 27, 41, 0.78);
+  --line: #343747;
+  --text: #F5F5F5;
+  --muted: #B8B8C2;
+  --copper: #FFCE00;
+  --mint: #FFCE00;
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
   --radius: 22px;
-  
-  --modal-bg: #161b22;
-  --modal-bar: rgba(16, 20, 26, 0.92);
-  --card-bg: #1d242e;
-  --backdrop: rgba(5, 6, 8, 0.82);
-  --tag-bg: rgba(224, 160, 106, 0.05);
-  --tag-border: rgba(224, 160, 106, 0.4);
-  --nav-bg: rgba(11, 13, 16, 0.72);
-  --btn-ink: #0b0d10;
+
+  --modal-bg: #151827;
+  --modal-bar: #1D2030;
+  --card-bg: #181B29;
+  --backdrop: rgba(21, 24, 39, 0.82);
+  --tag-bg: rgba(255, 206, 0, 0.05);
+  --tag-border: rgba(255, 206, 0, 0.4);
+  --nav-bg: rgba(29, 32, 48, 0.95);
+  --footer-bg: #1D2030;
+  --btn-ink: #151827;
+  --nav-accent: var(--copper);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.25);
 }
 
 body.light-theme {
-  --bg: #faf9f7;
-  --bg-2: #ffffff;
+  --bg: #F7F6FC;
+  --bg-2: #FFFFFF;
   --panel: rgba(255, 255, 255, 0.85);
-  --line: rgba(0, 0, 0, 0.12);
-  --text: #2c2f33;
-  --muted: #6b7280;
-  --copper: #c26e29;
-  --mint: #2e8b71;
+  --line: #DCD9E8;
+  --text: #222222;
+  --muted: #555555;
+  --copper: #997300;
+  --mint: #997300;
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  
-  --modal-bg: #ffffff;
-  --modal-bar: rgba(245, 245, 245, 0.92);
-  --card-bg: #f3f4f6;
+
+  --modal-bg: #F7F6FC;
+  --modal-bar: #FFCE00;
+  --card-bg: #FFFFFF;
   --backdrop: rgba(0, 0, 0, 0.4);
-  --tag-bg: rgba(194, 110, 41, 0.05);
-  --tag-border: rgba(194, 110, 41, 0.3);
-  --nav-bg: rgba(250, 249, 247, 0.85);
-  --btn-ink: #ffffff;
+  --tag-bg: rgba(153, 115, 0, 0.05);
+  --tag-border: rgba(153, 115, 0, 0.3);
+  --nav-bg: rgba(255, 206, 0, 0.95);
+  --footer-bg: #FFCE00;
+  --btn-ink: #FFFFFF;
+  --nav-accent: #222222;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -51,8 +59,50 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Apply this class to your scrollable container */
+.custom-scroll {
+  /* Firefox Support */
+  scrollbar-width: thin;
+  /* Forces a thinner scrollbar */
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+  /* thumb color | track color */
+}
+
+/* WebKit Support (Chrome, Safari, Edge) */
+
+/* 1. Control the overall width of the scrollbar */
+.custom-scroll::-webkit-scrollbar {
+  appearance: none;
+  width: 1px;
+  /* Extremely thin */
+}
+
+/* 2. Hide the arrows at the top and bottom */
+.custom-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* 3. Make the track transparent so it blends perfectly into the UI */
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 12px;
+}
+
+/* 4. Style the draggable thumb */
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  /* Subtle, semi-transparent */
+  border-radius: 10px;
+  /* Gives the thumb soft, rounded edges */
+}
+
+/* Optional: Make the thumb slightly brighter when hovered for better UX */
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
 body {
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -78,28 +128,7 @@ a {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
 
-.orb {
-  position: fixed;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.28;
-  z-index: 0;
-  pointer-events: none;
-}
 
-.orb-a {
-  background: #3a4d46;
-  top: -120px;
-  right: -80px;
-}
-
-.orb-b {
-  background: #5a3d28;
-  bottom: 10%;
-  left: -140px;
-}
 
 .nav,
 main,
@@ -123,13 +152,14 @@ main,
 }
 
 .logo {
-  font-family: "Instrument Serif", serif;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
   font-size: 1.7rem;
   letter-spacing: 0.02em;
 }
 
 .logo span {
-  color: var(--copper);
+  color: var(--nav-accent);
 }
 
 .nav-links {
@@ -145,7 +175,7 @@ main,
 }
 
 .nav-cta {
-  color: var(--copper);
+  color: var(--nav-accent);
   font-weight: 500;
 }
 
@@ -164,6 +194,7 @@ main,
 
 .eyebrow {
   color: var(--mint);
+  font-family: "JetBrains Mono", monospace;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 0.76rem;
@@ -178,7 +209,8 @@ h3 {
 }
 
 h1 {
-  font-family: "Instrument Serif", serif;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
   font-size: clamp(2.6rem, 6vw, 5.2rem);
   line-height: 1.05;
   margin-bottom: 22px;
@@ -194,7 +226,7 @@ h1 span {
   margin-top: 10px;
   font-size: 0.52em;
   color: var(--muted);
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   line-height: 1.3;
 }
@@ -265,7 +297,8 @@ h1 span {
 }
 
 h2 {
-  font-family: "Instrument Serif", serif;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.15;
 }
@@ -281,7 +314,7 @@ h2 {
   line-height: 1.7;
 }
 
-.about-text p + p {
+.about-text p+p {
   margin-top: 24px;
 }
 
@@ -297,7 +330,6 @@ h2 {
 }
 
 .skill-card,
-.category-card,
 .project-card {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -340,6 +372,12 @@ h2 {
 }
 
 .category-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  padding: 0;
+  overflow: hidden;
   text-align: left;
   cursor: pointer;
   width: 100%;
@@ -348,14 +386,29 @@ h2 {
   min-height: 240px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.card-cover {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+
+.category-card .card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1;
 }
 
 .category-card:hover,
 .category-card:focus-visible {
   transform: translateY(-6px);
-  border-color: rgba(224, 160, 106, 0.55);
+  border-color: var(--copper);
   outline: none;
 }
 
@@ -372,20 +425,21 @@ h2 {
 
 .category-card[data-domain="ml"] .cat-icon,
 .category-card[data-category="personal"] .cat-icon {
-  background: rgba(126, 207, 184, 0.12);
+  background: var(--tag-bg);
 }
 
 .category-card[data-domain="excel"] .cat-icon,
 .category-card[data-category="learning"] .cat-icon {
-  background: rgba(176, 164, 230, 0.14);
+  background: var(--tag-bg);
 }
 
 .category-card[data-domain="web"] .cat-icon {
-  background: rgba(224, 160, 106, 0.18);
+  background: var(--tag-bg);
 }
 
 .category-card h3 {
-  font-family: "Instrument Serif", serif;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
@@ -410,6 +464,7 @@ h2 {
   padding: 28px 7vw 48px;
   color: var(--muted);
   border-top: 1px solid var(--line);
+  background: var(--footer-bg);
 }
 
 .modal[hidden] {
@@ -435,17 +490,22 @@ h2 {
   max-height: min(86vh, 860px);
   margin: 7vh auto;
   background: var(--modal-bg);
-  border: 1px solid rgba(232, 224, 210, 0.18);
+  border: 1px solid var(--line);
   border-radius: 24px;
   box-shadow: var(--shadow);
   overflow: auto;
   animation: rise 0.28s ease;
 }
 
+.modal-window::-webkit-scrollbar-track {
+  margin-block: 24px;
+}
+
 @keyframes rise {
   from {
     transform: translateY(18px) scale(0.98);
   }
+
   to {
     transform: none;
   }
@@ -471,29 +531,7 @@ h2 {
   min-width: 84px;
 }
 
-.window-dots {
-  display: flex;
-  gap: 7px;
-}
 
-.window-dots span {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #3d444e;
-}
-
-.window-dots span:first-child {
-  background: #d97862;
-}
-
-.window-dots span:nth-child(2) {
-  background: #e0a06a;
-}
-
-.window-dots span:last-child {
-  background: #7ecfb8;
-}
 
 .modal-bar h2 {
   font-size: 1.35rem;
@@ -544,7 +582,8 @@ h2 {
 }
 
 .project-card h3 {
-  font-family: "Instrument Serif", serif;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
   font-size: 1.45rem;
   margin-bottom: 8px;
 }
