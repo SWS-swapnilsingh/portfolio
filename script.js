@@ -30,6 +30,7 @@ const domains = [
     id: "se",
     title: "Software Engineering",
     icon: "{}",
+    image: "assets/se_banner.jpg",
     blurb: "Scalable apps, APIs, and backend systems with a clear structure.",
     intro: "Here are the software engineering projects in that category.",
     categories: {
@@ -93,6 +94,7 @@ const domains = [
     id: "ml",
     title: "Machine Learning",
     icon: "λ",
+    image: "assets/ml_banner.jpg",
     blurb: "Model training, evaluation pipelines, and predictive algorithms.",
     intro: "Here are the machine learning projects in that category.",
     categories: {
@@ -132,6 +134,7 @@ const domains = [
     id: "ds",
     title: "Data Science",
     icon: "▤",
+    image: "assets/ds_banner.jpg",
     blurb: "Data cleaning, exploratory analysis, and visualization dashboards.",
     intro: "Here are the data science projects in that category.",
     categories: {
@@ -188,10 +191,13 @@ domainGrid.innerHTML = domains
   .map(
     (domain) => `
     <button class="category-card" type="button" data-domain="${domain.id}">
-      <span class="cat-icon" aria-hidden="true">${domain.icon}</span>
-      <h3>${domain.title}</h3>
-      <p>${domain.blurb}</p>
-      <span class="cat-count">${projectCount(domain)} projects →</span>
+      <img class="card-cover" src="${domain.image}" alt="${domain.title} Cover" />
+      <div class="card-content">
+        <span class="cat-icon" aria-hidden="true">${domain.icon}</span>
+        <h3>${domain.title}</h3>
+        <p>${domain.blurb}</p>
+        <span class="cat-count">${projectCount(domain)} projects →</span>
+      </div>
     </button>
   `
   )
