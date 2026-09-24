@@ -27,70 +27,6 @@ const categoryMeta = {
 
 const domains = [
   {
-    id: "se",
-    title: "Software Engineering",
-    icon: "{}",
-    image: "assets/se_banner.jpg",
-    blurb: "Scalable apps, APIs, and backend systems with a clear structure.",
-    intro: "Here are the software engineering projects in that category.",
-    categories: {
-      academic: [
-        {
-          title: "Campus Library System",
-          description:
-            "A desktop-style web app for catalog search, issue/return flow, and fine tracking. Built around a relational schema and role-based screens for students and librarians.",
-          tags: ["Python", "SQLite", "HTML/CSS"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-        {
-          title: "Student Result Portal",
-          description:
-            "CRUD portal for marks, attendance, and report generation. Focused on form validation, normalized tables, and a simple admin dashboard.",
-          tags: ["Java", "MySQL", "JSP"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-      ],
-      personal: [
-        {
-          title: "This Portfolio",
-          description:
-            "A single-page site with field-first browsing, then academic / personal / learning, then project cards. Built to feel like a small product, not a long list.",
-          tags: ["HTML", "CSS", "JavaScript"],
-          live: "#home",
-          code: "https://github.com/",
-        },
-        {
-          title: "Habit Loop",
-          description:
-            "A lightweight habit tracker with streaks, weekly review, and local storage. Designed to stay fast and usable without an account.",
-          tags: ["React", "LocalStorage", "UI"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-      ],
-      learning: [
-        {
-          title: "Notes REST Client",
-          description:
-            "A notes frontend talking to a REST API: create, edit, filter, and optimistic updates. Used this to get comfortable with JSON APIs.",
-          tags: ["Node.js", "Express", "REST"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-        {
-          title: "Algorithm Visualizer",
-          description:
-            "Interactive visualizer for sorting and pathfinding. Step-through controls, speed slider, and explanations so classmates could see how each algorithm behaves.",
-          tags: ["JavaScript", "Canvas", "DSA"],
-          live: "https://github.com/",
-          code: "https://github.com/",
-        },
-      ],
-    },
-  },
-  {
     id: "ml",
     title: "Machine Learning",
     icon: "λ",
@@ -164,6 +100,70 @@ const domains = [
           description:
             "A simulated A/B test analysis using SciPy to determine statistical significance between two marketing landing pages.",
           tags: ["Python", "SciPy", "StatsModels"],
+          live: "https://github.com/",
+          code: "https://github.com/",
+        },
+      ],
+    },
+  },
+  {
+    id: "se",
+    title: "Software Engineering",
+    icon: "{}",
+    image: "assets/se_banner.jpg",
+    blurb: "Scalable apps, APIs, and backend systems with a clear structure.",
+    intro: "Here are the software engineering projects in that category.",
+    categories: {
+      academic: [
+        {
+          title: "Campus Library System",
+          description:
+            "A desktop-style web app for catalog search, issue/return flow, and fine tracking. Built around a relational schema and role-based screens for students and librarians.",
+          tags: ["Python", "SQLite", "HTML/CSS"],
+          live: "https://github.com/",
+          code: "https://github.com/",
+        },
+        {
+          title: "Student Result Portal",
+          description:
+            "CRUD portal for marks, attendance, and report generation. Focused on form validation, normalized tables, and a simple admin dashboard.",
+          tags: ["Java", "MySQL", "JSP"],
+          live: "https://github.com/",
+          code: "https://github.com/",
+        },
+      ],
+      personal: [
+        {
+          title: "This Portfolio",
+          description:
+            "A single-page site with field-first browsing, then academic / personal / learning, then project cards. Built to feel like a small product, not a long list.",
+          tags: ["HTML", "CSS", "JavaScript"],
+          live: "#home",
+          code: "https://github.com/",
+        },
+        {
+          title: "Habit Loop",
+          description:
+            "A lightweight habit tracker with streaks, weekly review, and local storage. Designed to stay fast and usable without an account.",
+          tags: ["React", "LocalStorage", "UI"],
+          live: "https://github.com/",
+          code: "https://github.com/",
+        },
+      ],
+      learning: [
+        {
+          title: "Notes REST Client",
+          description:
+            "A notes frontend talking to a REST API: create, edit, filter, and optimistic updates. Used this to get comfortable with JSON APIs.",
+          tags: ["Node.js", "Express", "REST"],
+          live: "https://github.com/",
+          code: "https://github.com/",
+        },
+        {
+          title: "Algorithm Visualizer",
+          description:
+            "Interactive visualizer for sorting and pathfinding. Step-through controls, speed slider, and explanations so classmates could see how each algorithm behaves.",
+          tags: ["JavaScript", "Canvas", "DSA"],
           live: "https://github.com/",
           code: "https://github.com/",
         },
@@ -287,5 +287,14 @@ themeToggle.addEventListener("click", () => {
   } else {
     localStorage.setItem("theme", "dark");
     themeToggle.textContent = "☀";
+  }
+});
+
+const nav = document.querySelector(".nav");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
   }
 });

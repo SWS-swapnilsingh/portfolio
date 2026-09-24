@@ -16,7 +16,7 @@
   --backdrop: rgba(21, 24, 39, 0.82);
   --tag-bg: rgba(255, 206, 0, 0.05);
   --tag-border: rgba(255, 206, 0, 0.4);
-  --nav-bg: rgba(29, 32, 48, 0.95);
+  --nav-bg: rgba(29, 32, 48, 0.65);
   --footer-bg: #1D2030;
   --btn-ink: #151827;
   --nav-accent: var(--copper);
@@ -41,7 +41,7 @@ body.light-theme {
   --backdrop: rgba(0, 0, 0, 0.4);
   --tag-bg: rgba(153, 115, 0, 0.05);
   --tag-border: rgba(153, 115, 0, 0.3);
-  --nav-bg: rgba(255, 206, 0, 0.95);
+  --nav-bg: rgba(255, 206, 0, 0.75);
   --footer-bg: #FFCE00;
   --btn-ink: #FFFFFF;
   --nav-accent: #222222;
@@ -142,13 +142,27 @@ main,
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  width: 100%;
+  margin: 0 auto;
   padding: 22px 7vw;
   position: sticky;
   top: 0;
   backdrop-filter: blur(16px);
   background: var(--nav-bg);
+  border: 1px solid transparent;
   border-bottom: 1px solid var(--line);
   z-index: 5;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav.scrolled {
+  top: 16px;
+  width: calc(100% - 32px);
+  max-width: 1600px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
 .logo {
